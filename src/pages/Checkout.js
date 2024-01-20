@@ -1,4 +1,5 @@
 import React from 'react'
+import "../App.css";
 import { useSelector } from 'react-redux'
 import CheckoutProduct from '../components/CheckoutProduct'
 import { useEffect, useState } from "react";

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import "../App.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation,useParams } from 'react-router-dom';
 import Spinner from '../components/Spinner';

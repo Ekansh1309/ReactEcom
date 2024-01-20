@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 function getLocalCartData(){
     let newCartData= localStorage.getItem("EcomCart")
     const parsedData = JSON.parse(newCartData)

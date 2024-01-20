@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import "../App.css";
 import { NavLink } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import { FaShoppingCart } from "react-icons/fa";

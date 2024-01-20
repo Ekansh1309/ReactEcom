@@ -1,4 +1,5 @@
 import React from 'react'
+import "../App.css";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
@@ -28,22 +29,22 @@ const Navbar = (props) => {
             <ul className="bg-slate-800 list-items">
 
             <li>
-              <NavLink to='/'>
+              <NavLink className='anchor' to='/'>
                 <i className="fas fa-home"></i>Home
               </NavLink>
             </li>
             <li>
-              <NavLink to='/products'>
+              <NavLink className='anchor' to='/products'>
                 <i className="fas fa-sliders-h"></i>Products
               </NavLink>
             </li>
             <li>
-              <NavLink to='/about'>
+              <NavLink className='anchor' to='/about'>
                 <i className="fas fa-address-book"></i>About Us
               </NavLink>
             </li>
             <li>
-              <NavLink to='/contact'>
+              <NavLink className='anchor' to='/contact'>
                 <i className="fas fa-cog"></i>Contact Us
               </NavLink>
             </li>

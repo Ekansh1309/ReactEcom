@@ -1,10 +1,10 @@
 import React from 'react'
+import "../App.css";
 
 const CheckoutProduct = ({item}) => {
     const Subtotal= item.quantity * item.price
   return (
     <tr>
-      {/* <br/> */}
         <td>
           <img src={item.image} alt="Product Image" class="item-image"/>
           <p>{item.title}</p>
@@ -12,7 +12,6 @@ const CheckoutProduct = ({item}) => {
         <td>${item.price}</td>
         <td>{item.quantity}</td>
         <td>${Subtotal}</td>
-      {/* <br/> */}
     </tr>
   )
 }

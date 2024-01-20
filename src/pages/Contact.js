@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "../App.css";
 import toast from 'react-hot-toast';
 
 const Contact = () => {
@@ -16,10 +17,6 @@ const Contact = () => {
     })
   }
 
-  // function onSubmitHandler(event){
-  //   event.preventDefault()
-  //   console.log(formData)
-  // }
 
   const [error, setError] = useState('')
   
@@ -123,7 +120,7 @@ const Contact = () => {
               />
             </div>
             
-            <button className="button-65" type="submit">Submit</button>
+            <button className="button-65">Submit</button>
           </form>
       </div>
 

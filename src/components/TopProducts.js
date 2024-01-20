@@ -1,4 +1,5 @@
 import React from 'react'
+import "../App.css";
 import { useEffect, useState } from "react";
 import Spinner from "../components/Spinner";
 import Product from "../components/Product"
@@ -73,5 +74,3 @@ const TopProducts = () => {
 
 export default TopProducts
 
-
-// className="flex flex-wrap justify-center max-w-6xl p-2 mx-auto space-y-10 space-x-5 min-h-[80vh]"

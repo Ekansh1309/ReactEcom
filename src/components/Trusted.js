@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "../App.css";
 const Trusted = () => {
   const companies=[
     'https://images.squarespace-cdn.com/content/v1/5ede2122e582b96630a4a73e/1609375996518-DZU53FYNB3FMBYB1JHG6/HP-logo+2021.jpg',

@@ -1,3 +1,4 @@
+import "../App.css";
 import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { add,remove,setItem } from "../redux/Slices/cartSlice";
@@ -34,12 +35,7 @@ const CategoryProduct = ({post}) => {
         <div className="h-[130px]">
           <img src={post.image}  className="h-full w-full"/>
         </div>
-  
-        {/* <div className="flex justify-between gap-12 items-center w-full mt-5">
-          <div>
-            <p className="text-green-600 font-semibold " >${post.price}</p>
-          </div>
-        </div> */}
+
       </NavLink>
       
     )

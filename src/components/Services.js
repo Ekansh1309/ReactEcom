@@ -1,4 +1,5 @@
 import React from 'react'
+import "../App.css";
 import { TbTruckDelivery } from "react-icons/tb";
 import { RiSecurePaymentFill } from "react-icons/ri";
 import { PiContactlessPaymentLight } from "react-icons/pi";

@@ -1,4 +1,5 @@
 import React from 'react'
+import "../App.css";
 import { useSelector } from 'react-redux'
 
 const FilterSection = ({input,setInput,value,setValue,category,setCategory}) => {
@@ -25,7 +26,7 @@ const FilterSection = ({input,setInput,value,setValue,category,setCategory}) => 
     <div className='mt-20 top-0 sticky'>
 
       <div>
-        <input className='w-[120px] mt-5 border-2 border-slate-200 p-1 text-sm  md:w-[140px]'
+        <input className='w-full mt-5 border-2 border-slate-200 p-1 text-sm  md:w-[140px]'
         type='text'
         placeholder='Search'
         autoComplete='off'

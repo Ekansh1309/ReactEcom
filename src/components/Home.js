@@ -1,12 +1,10 @@
 import React from 'react'
+import "../App.css";
 import { useState, useEffect } from 'react'
 import men from '../banners/men11.jpg'
-import phone from '../banners/phones.jpg'
-import women from '../banners/womeninsaare.jpg'
 import flip from '../banners/flipkartimage.jpg'
 import TopProducts from './TopProducts'
 import 'react-slideshow-image/dist/styles.css'
-import {Fade,Zoom,Slide} from 'react-slideshow-image'
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

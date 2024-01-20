@@ -1,4 +1,5 @@
 import React from 'react'
+import "../App.css";
 import { NavLink } from 'react-router-dom'
 import frame from '../banners/frame.jpg'
 import Services from '../components/Services';

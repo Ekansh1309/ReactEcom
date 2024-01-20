@@ -1,4 +1,5 @@
 import React from 'react'
+import "../App.css";
 import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import CartItem from "../components/CartItem";

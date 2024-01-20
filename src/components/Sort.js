@@ -1,4 +1,5 @@
 import React from 'react'
+import "../App.css";
 import { IoGrid } from "react-icons/io5";
 import { FaThList } from "react-icons/fa";
 

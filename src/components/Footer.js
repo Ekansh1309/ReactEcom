@@ -1,4 +1,5 @@
 import React from 'react'
+import "../App.css";
 import { NavLink } from 'react-router-dom'
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";

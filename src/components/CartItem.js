@@ -1,4 +1,5 @@
 import {FcDeleteDatabase} from 'react-icons/fc'
+import "../App.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from "react-hot-toast";
 import { add,remove,addQuantity } from "../redux/Slices/cartSlice";

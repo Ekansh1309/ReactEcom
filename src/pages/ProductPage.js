@@ -1,4 +1,5 @@
 import React from 'react'
+import "../App.css";
 import FilterSection from '../components/FilterSection'
 import Sort from '../components/Sort'
 import { useEffect, useState } from "react";
@@ -93,7 +94,7 @@ const ProductPage = () => {
   return (
     <div className={` flex ${gridView ? "max-w-6xl" : "max-w-4xl"}  mx-auto `} >
 
-      <div className=' relative w-[180px]  px-2 '>
+      <div className=' relative w-[180px]  pl-2 '>
         <FilterSection input={input} setInput={setInput}
         value={value} setValue={setValue} 
         category={category} setCategory={setCategory}

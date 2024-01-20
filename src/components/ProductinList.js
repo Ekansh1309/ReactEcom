@@ -1,4 +1,5 @@
 import React from 'react'
+import "../App.css";
 import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { add,remove,setItem } from "../redux/Slices/cartSlice";
