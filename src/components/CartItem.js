@@ -11,10 +11,13 @@ import { useEffect } from 'react';
 
 const CartItem = ({post}) => {
   const dispatch= useDispatch()
-  const id=post.id
-
+  
   const {cart} = useSelector((state)=>state)
-
+  console.log("cart")
+  console.log(cart)
+  console.log("cart22")
+  const id=post.id
+  
   let [quan,setQuantity] = useState(post.quantity)
 
   const increaseQuantity = () => {
@@ -32,21 +35,13 @@ const CartItem = ({post}) => {
 
   function removeFromCart(){
     dispatch(remove(post.id))
+    // console.log("cart")
+    // console.log(cart)
     toast.error("Item Removed")
   }
 
   useEffect(() => {
-    try {
-      // Ensure cart is not empty
-      if (cart && cart.length > 0) {
         localStorage.setItem("EcomCart", JSON.stringify(cart));
-        // console.log("Cart data saved to local storage:", cart);
-      } else {
-        console.warn("Cart is empty. Local storage not updated.");
-      }
-    } catch (error) {
-      console.error("Error saving cart data to local storage:", error);
-    }
   }, [cart]);
   
   

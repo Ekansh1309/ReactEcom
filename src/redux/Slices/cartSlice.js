@@ -4,7 +4,6 @@ import { createSlice } from "@reduxjs/toolkit";
 function getLocalCartData(){
     let newCartData= localStorage.getItem("EcomCart")
     const parsedData = JSON.parse(newCartData)
-
     if(!Array.isArray(parsedData)){
         return []
     }
@@ -14,6 +13,7 @@ function getLocalCartData(){
 export const CartSlice= createSlice({
     name:"cart",
     initialState: getLocalCartData(),
+    // initialState: [],
     reducers: {
         add:(state,action)=>{
             const {post}= action.payload
@@ -23,13 +23,13 @@ export const CartSlice= createSlice({
         remove: (state, action) => {
             const itemIdToRemove = action.payload;
             const updatedState = state.filter(item => item.id !== itemIdToRemove);
+            console.log("after remove")
+            console.log(updatedState)
             return updatedState;
           },
 
         addQuantity: (state, action) => {
             const { id, quan } = action.payload;
-            // console.log("addQuan")
-            // console.log(state)
             return state.map((item) => (item.id === id ? { ...item, quantity: quan } : item));
         },
     }

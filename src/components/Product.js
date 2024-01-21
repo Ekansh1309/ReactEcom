@@ -11,7 +11,6 @@ const Product = ({post}) => {
     const {cart}= useSelector((state)=> state)
     const dispatch= useDispatch()
 
-  
     function addToCart(){
       dispatch(add({post}))
       toast.success("Item added to Cart")
@@ -22,17 +21,7 @@ const Product = ({post}) => {
     }
 
     useEffect(() => {
-      try {
-        // Ensure cart is not empty
-        if (cart && cart.length > 0) {
           localStorage.setItem("EcomCart", JSON.stringify(cart));
-          // console.log("Cart data saved to local storage:", cart);
-        } else {
-          console.warn("Cart is empty. Local storage not updated.");
-        }
-      } catch (error) {
-        console.error("Error saving cart data to local storage:", error);
-      }
     }, [cart]);
     
     return (  // w-[250px]

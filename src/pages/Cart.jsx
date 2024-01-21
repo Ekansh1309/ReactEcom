@@ -13,6 +13,10 @@ const Cart = () => {
     setTotalAmount( cart.reduce((acc,curr)=> acc+curr.price,0) )
   },[cart])
 
+  useEffect(() => {
+        localStorage.setItem("EcomCart", JSON.stringify(cart));
+  }, [cart]);
+
   return (
     <div>
     {
