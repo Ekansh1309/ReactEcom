@@ -1,5 +1,4 @@
 import React from 'react'
-import "../App.css";
 import FilterSection from '../components/FilterSection'
 import Sort from '../components/Sort'
 import { useEffect, useState } from "react";
@@ -14,40 +13,23 @@ import { setData } from '../redux/Slices/getProductsSlice';
 const ProductPage = () => {
   const dispatch = useDispatch()
 
+  // from store
   const {products,getProducts}=useSelector((state)=>state)
-  const [posts,setPosts] = useState( getProducts.posts)
-
-  const [gridView,setGridView]= useState(true)
-
-  const [basis,setBasis] = useState(products.sorting_value)
-  const [value,setValue] = useState(products.range_value);
-
-  const [input,setInput] = useState('')
-
-  const API_URL = "https://fakestoreapi.com/products";
-  const [loading,setLoading] = useState(false)
-  // const [posts,setPosts] =useState([])
-  // const [category,setCategory] =useState(filterData[0])
-  const [category,setCategory] =useState(products.category_value)
   
+  // for Grid
+  const [gridView,setGridView]= useState(true)
+  
+  // On what basis we want our products
+  const [basis,setBasis] = useState(products.sorting_value)
 
-    async function fetchProductData(){
-      setLoading(true)
-      try {
-        const res= await fetch(API_URL);
-        const data= await res.json();
-        dispatch(setData(data))
-        // setPosts(data)
-      } catch (error) {
-        console.log("error in loading")
-        setPosts([])
-      }
-      setLoading(false)
-    }
-    
-    useEffect(()=>{
-      fetchProductData()
-    },[])
+  // Price Range of items
+  const [value,setValue] = useState(products.range_value);
+  
+  // for input
+  const [input,setInput] = useState('')
+  
+  const posts = getProducts.posts
+  const category = products.category_value
     
     function onChangeHandler(event){
       setBasis(event.target.value);
@@ -55,7 +37,7 @@ const ProductPage = () => {
 
     useEffect(()=>{
       dispatch(loadProducts(getProducts.posts))
-    },[posts, getProducts.posts ,basis,input])
+    },[posts,basis,input])
 
     useEffect(()=>{
       dispatch(loadSortingValue(basis))
@@ -63,7 +45,7 @@ const ProductPage = () => {
 
     useEffect(()=>{
       dispatch(sorting(posts))
-    },[posts,getProducts.posts,products.sorting_value])
+    },[posts,products.sorting_value,input])
 
     useEffect(()=>{
       dispatch(loadRange(value))
@@ -71,7 +53,7 @@ const ProductPage = () => {
 
     useEffect(()=>{
       dispatch(Range(posts))
-    },[posts,getProducts.posts,products.range_value ])
+    },[posts,products.range_value ])
 
     useEffect(()=>{
       dispatch(loadInput(input))
@@ -83,21 +65,21 @@ const ProductPage = () => {
 
     useEffect(()=>{
       console.log(category)
-      dispatch(loadCategory(category))
+      dispatch(loadCategory(category)) 
     },[category])
 
     useEffect(()=>{
       dispatch(filterCategory())
-    },[posts,getProducts.posts,products.category_value])
+    },[posts,products.category_value])
 
   
   return (
     <div className={` flex ${gridView ? "max-w-6xl" : "max-w-4xl"}  mx-auto `} >
 
-      <div className=' relative w-[180px]  pl-2 '>
+      <div className=' relative w-[180px]  px-2 '>
         <FilterSection input={input} setInput={setInput}
         value={value} setValue={setValue} 
-        category={category} setCategory={setCategory}
+        category={category}
         />
       </div>
 
@@ -119,7 +101,7 @@ const ProductPage = () => {
       </div>
       <h1 className='mt-2 text-center font-bold text-lg md:text-2xl' >Top Products</h1>
     {
-  loading ? (
+  getProducts.loading ? (
     <Spinner />
   ) : products.filterProducts.length > 0 ? (
     <div className={`flex ${gridView ? "flex-wrap" : "flex-col"} justify-center max-w-6xl p-2 mx-auto space-y-10 space-x-5 min-h-[80vh]`}>
@@ -133,9 +115,6 @@ const ProductPage = () => {
     <div className="flex justify-center items-center">No data found</div>
   )
 }
-
-
-
   </div>
 
   </div>

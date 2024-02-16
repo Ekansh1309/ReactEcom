@@ -15,33 +15,45 @@ import { useEffect, useState } from "react";
 import SingleProduct from "./pages/SingleProduct";
 import CustomerForm from "./components/CustomerForm";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilterData } from "./redux/Slices/getProductsSlice";
+import { setData, setFilterData, setLoading } from "./redux/Slices/getProductsSlice";
 
 
 function App() {
 
-  const {getProducts}= useSelector((state)=>state)
+  // const {getProducts}= useSelector((state)=>state)
+
   const dispatch= useDispatch()
 
   const Cat_Url = "https://fakestoreapi.com/products/categories";
-  // const [loading,setLoading] = useState(false)
-  // const [filtData,setFiltData]= useState(getProducts.filterData)
-  const [loading,setLoading] = useState(false)
+  const API_URL = "https://fakestoreapi.com/products";
 
     async function fetchProductCat(){
-      setLoading(true)
+      dispatch( setLoading() )
       try {
         const res= await fetch(Cat_Url);
         const data= await res.json();
-
         dispatch(setFilterData(data))
+
       } catch (error) {
         console.log("error in loading")
       }
-      setLoading(false)
+    }
+
+    async function fetchProductData(){
+      dispatch( setLoading() )
+      try {
+        const res= await fetch(API_URL);
+        const data= await res.json();
+        dispatch(setData(data));
+
+      } catch (error) {
+        console.log("error in loading")
+        // dispatch(setError())
+      }
     }
     
     useEffect(()=>{
+      fetchProductData()
       fetchProductCat()
     },[])
   

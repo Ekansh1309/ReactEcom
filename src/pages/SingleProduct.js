@@ -48,22 +48,6 @@ const SingleProduct = () => {
       toast.error("Item Removed From Cart")
     }
 
-    const API_URL = "https://fakestoreapi.com/products";
-    async function fetchProductData(){
-      try {
-        const res= await fetch(API_URL);
-        const data= await res.json();
-        dispatch(setData(data))
-        // setPosts(data)
-      } catch (error) {
-        console.log("error in loading")
-      }
-    }
-    
-    useEffect(()=>{
-      fetchProductData()
-    },[])
-
 
   return (
     <div className='min-h-[60vh]' >

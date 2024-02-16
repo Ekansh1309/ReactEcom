@@ -123,9 +123,7 @@ const Contact = () => {
             <button className="button-65">Submit</button>
           </form>
       </div>
-
-
-
+      
     </div>
   )
 }

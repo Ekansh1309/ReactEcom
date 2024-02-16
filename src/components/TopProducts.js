@@ -1,5 +1,4 @@
 import React from 'react'
-import "../App.css";
 import { useEffect, useState } from "react";
 import Spinner from "../components/Spinner";
 import Product from "../components/Product"
@@ -15,42 +14,13 @@ const TopProducts = () => {
 
   const {products, getProducts} = useSelector((state)=>state)
 
-  const API_URL = "https://fakestoreapi.com/products";
-  const [loading,setLoading] = useState(false)
-  const [posts,setPosts] =useState([])
-  
-  // const [catposts,setCatposts]= useState([])
-  const catposts= getProducts.featurePosts
-
-    async function fetchProductData(){
-      setLoading(true)
-      try {
-        const res= await fetch(API_URL);
-        const data= await res.json();
-        setPosts(data)
-      } catch (error) {
-        console.log("error in loading")
-        // dispatch(setError())
-      }
-      setLoading(false)
-    }
-    
-    useEffect(()=>{
-      fetchProductData()
-    },[])
-
-    useEffect(()=>{
-      dispatch(setData(posts))
-    },[posts])
-
-    
-    
+  const catposts= getProducts.featurePosts    
 
     return (
       <div>
         <h1 className='mt-5 text-center font-bold text-2xl tracking-wider' >Our Services</h1>
         {
-          loading ? (<Spinner/>) : 
+          getProducts.loading ? (<Spinner/>) : 
           (
             catposts.length >0 ? 
             // grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4
@@ -74,3 +44,5 @@ const TopProducts = () => {
 
 export default TopProducts
 
+
+// className="flex flex-wrap justify-center max-w-6xl p-2 mx-auto space-y-10 space-x-5 min-h-[80vh]"

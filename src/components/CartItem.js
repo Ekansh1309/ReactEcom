@@ -13,9 +13,6 @@ const CartItem = ({post}) => {
   const dispatch= useDispatch()
   
   const {cart} = useSelector((state)=>state)
-  console.log("cart")
-  console.log(cart)
-  console.log("cart22")
   const id=post.id
   
   let [quan,setQuantity] = useState(post.quantity)
@@ -35,8 +32,6 @@ const CartItem = ({post}) => {
 
   function removeFromCart(){
     dispatch(remove(post.id))
-    // console.log("cart")
-    // console.log(cart)
     toast.error("Item Removed")
   }
 
@@ -44,8 +39,6 @@ const CartItem = ({post}) => {
         localStorage.setItem("EcomCart", JSON.stringify(cart));
   }, [cart]);
   
-  
-
   return (
     <div className=" w-[500px] cartborder flex items-center justify-between  gap-3 p-4 mt-10 cartmiddle">
       {/* <div className='flex items-center justify-between'> */}

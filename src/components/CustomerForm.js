@@ -23,7 +23,7 @@ const CustomerForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your logic for handling form submission
+    // Add logic for handling form submission
     e.stopPropagation();
 
     const cartDetails = cart.map(item => ({ title: item.title, quantity: item.quantity }));

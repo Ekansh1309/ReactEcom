@@ -1,17 +1,17 @@
 import React from 'react'
-import "../App.css";
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { loadCategory } from '../redux/Slices/productSlice';
 
-const FilterSection = ({input,setInput,value,setValue,category,setCategory}) => {
-
-  const {getProducts} = useSelector((state)=>state)
+const FilterSection = ({input,setInput,value,setValue,category}) => {
+  const dispatch = useDispatch();
+  const {products,getProducts} = useSelector((state)=>state)
 
   let filterData= getProducts.filterData
 
    filterData = [...new Set(filterData)];
 
   function clickHandler(data){
-    setCategory(data)
+    dispatch(loadCategory(data))
   }
 
   function onChangeHandler(event){
@@ -26,7 +26,7 @@ const FilterSection = ({input,setInput,value,setValue,category,setCategory}) => 
     <div className='mt-20 top-0 sticky'>
 
       <div>
-        <input className='w-full mt-5 border-2 border-slate-200 p-1 text-sm  md:w-[140px]'
+        <input className='w-[120px] mt-5 border-2 border-slate-200 p-1 text-sm  md:w-[140px]'
         type='text'
         placeholder='Search'
         autoComplete='off'

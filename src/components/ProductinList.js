@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { add,remove,setItem } from "../redux/Slices/cartSlice";
 import { FaStar } from "react-icons/fa6";
+import { NavLink } from 'react-router-dom';
 
 const ProductinList = ({post}) => {
     const {cart}= useSelector((state)=> state)
@@ -24,9 +25,13 @@ const ProductinList = ({post}) => {
       duration-300 ease-in  p-4 mt-10 ml-5 rounded-xl
 
        `}>
-        <div className="w-[150px] h-[170px] ">
+        <NavLink to={{
+    pathname: `/products/singleproduct/${post.id}`,
+    state: { postObject: post.id }
+  }}
+         className="w-[150px] h-[170px] ">
           <img src={post.image}  className="h-full w-full"/>
-        </div>
+        </NavLink>
         <div className={`px-1 absolute top-7 left-0 inline-block pb-1 ${post.rating.rate >= 4 ? 'bg-green-500' : (post.rating.rate >= 3 ? 'bg-yellow-500' : 'bg-red-500')}`}>
             {post.rating.rate} <FaStar className='inline-block' />
         </div>

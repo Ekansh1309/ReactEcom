@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { CartSlice } from "./cartSlice";
 
-
 export const GetProductsSlice= createSlice({
     name:"getProducts",
     initialState:{
@@ -22,7 +21,6 @@ export const GetProductsSlice= createSlice({
         data.forEach(element => {
           element['quantity']= element.quantity || 0
           if(map[element.category]){
-
           }
           else{
             arr.push(element);
@@ -57,6 +55,7 @@ export const GetProductsSlice= createSlice({
             const tempData= [...filterData]
             return{
                 ...state,
+                loading:false,
                 filterData:[...tempData,...data]
             }
         }
